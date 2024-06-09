@@ -1,0 +1,14 @@
+/* 
+npm init -y
+then goto apollo graphql server for documentation
+commands:
+npm i @apollo/server graphql
+npm i @types/node
+npm i ts-node-dev # for running the ts file
+npm i -D nodemon
+script : "dev": "nodemon --watch src/*.ts src/index.ts"
+npm run dev
+npm i prisma
+npx prisma init
+npx prisma migrate dev
+*/
