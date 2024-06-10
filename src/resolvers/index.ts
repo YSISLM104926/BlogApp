@@ -7,7 +7,8 @@ import config from "../config";
 interface UserInfo {
     name: string,
     email: string,
-    password: string
+    password: string,
+    bio?: string,
 }
 interface UserLogType {
     email: string,
@@ -40,6 +41,14 @@ export const resolvers = {
                     password: hashedPassword
                 }
             })
+            if (args.bio) {
+                await prisma.profile.create({
+                    data: {
+                        bio: args.bio,
+                        userId: newUser.id as any 
+                    }
+                })
+            }
             const token = await JwtHelper({ userId: newUser.id }, config.jwt.secret as string);
             return {
                 userError: null,
