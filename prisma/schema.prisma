@@ -18,7 +18,7 @@ model Post {
   title     String
   content   String
   authorId  Int
-  authod    User     @relation(fields: [authorId], references: [id])
+  author    User     @relation(fields: [authorId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   published Boolean  @default(false)
@@ -47,5 +47,5 @@ model Profile {
   userId    Int      @unique
   user      User     @relation(fields: [userId], references: [id])
   
-  @@map("profile")
+  @@map("profiles")
 }
